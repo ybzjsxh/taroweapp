@@ -6,6 +6,7 @@ import dva from './utils/dva';
 import models from './models';
 
 import Main from './pages/main';
+import 'taro-ui/dist/style/index.scss';
 import './app.less';
 
 const dvaApp = dva.createApp({
@@ -41,7 +42,7 @@ class App extends Component {
       color: '#333',
       selectedColor: '#333',
       backgroundColor: '#fff',
-      borderStyle: 'white',
+      borderStyle: 'white'
     }
   };
 
