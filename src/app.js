@@ -2,11 +2,11 @@ import '@tarojs/async-await';
 import Taro, { Component } from '@tarojs/taro';
 import { Provider } from '@tarojs/redux';
 
+import 'taro-ui/dist/style/index.scss';
 import dva from './utils/dva';
 import models from './models';
 
 import Main from './pages/main';
-import 'taro-ui/dist/style/index.scss';
 import './app.less';
 
 const dvaApp = dva.createApp({
@@ -16,8 +16,17 @@ const dvaApp = dva.createApp({
 const store = dvaApp.getStore();
 
 class App extends Component {
+  componentDidMount() {}
+
   config = {
-    pages: ['pages/main/index', 'pages/about/index'],
+    pages: [
+      'pages/main/index',
+      'pages/calendar/index',
+      'pages/article/index',
+      'pages/article/newArticle',
+      'pages/about/index',
+      'pages/maps/index',
+    ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
@@ -33,20 +42,35 @@ class App extends Component {
           selectedIconPath: 'assets/tabbar/index-active.png'
         },
         {
-          pagePath: 'pages/about/index',
-          text: '关于',
-          iconPath: './assets/tabbar/user.png',
-          selectedIconPath: 'assets/tabbar/user-active.png'
+          pagePath: 'pages/calendar/index',
+          text: '日历',
+          iconPath: './assets/tabbar/calendar.png',
+          selectedIconPath: 'assets/tabbar/calendar-active.png'
+        },
+        {
+          pagePath: 'pages/maps/index',
+          text: '地图',
+          iconPath: './assets/tabbar/maps.png',
+          selectedIconPath: 'assets/tabbar/maps-active.png'
+        },
+        {
+          pagePath: 'pages/article/index',
+          text: '文章',
+          iconPath: './assets/tabbar/articles.png',
+          selectedIconPath: 'assets/tabbar/articles-active.png'
         }
       ],
       color: '#333',
       selectedColor: '#333',
       backgroundColor: '#fff',
       borderStyle: 'white'
+    },
+    permission: {
+      'scope.userLocation': {
+        desc: '是的要你的定位权限，怕不怕'
+      }
     }
   };
-
-  componentDidMount() {}
 
   componentDidShow() {}
 
