@@ -1,8 +1,8 @@
 {
 	"miniprogramRoot": "dist/",
 	"projectname": "taroweapp",
-	"description": "taroweapp",
-	"appid": "wx9dc933e65f23e074",
+	"description": "",
+	"appid": "touristappid",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,

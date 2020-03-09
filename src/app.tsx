@@ -7,11 +7,11 @@ import dva from './utils/dva';
 import models from './models';
 
 import Main from './pages/main';
-import './app.less';
+import './app.scss';
 
 const dvaApp = dva.createApp({
   initialState: {},
-  models: models
+  models: models,
 });
 const store = dvaApp.getStore();
 
@@ -22,16 +22,16 @@ class App extends Component {
     pages: [
       'pages/main/index',
       'pages/calendar/index',
-      'pages/article/index',
-      'pages/article/newArticle',
-      'pages/about/index',
       'pages/maps/index',
+      'pages/article/index',
+      'pages/article/article',
+      'pages/article/newArticle',
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarTextStyle: 'black',
     },
     tabBar: {
       list: [
@@ -39,37 +39,37 @@ class App extends Component {
           pagePath: 'pages/main/index',
           text: '首页',
           iconPath: './assets/tabbar/index.png',
-          selectedIconPath: 'assets/tabbar/index-active.png'
+          selectedIconPath: 'assets/tabbar/index-active.png',
         },
         {
           pagePath: 'pages/calendar/index',
           text: '日历',
           iconPath: './assets/tabbar/calendar.png',
-          selectedIconPath: 'assets/tabbar/calendar-active.png'
+          selectedIconPath: 'assets/tabbar/calendar-active.png',
         },
         {
           pagePath: 'pages/maps/index',
           text: '地图',
           iconPath: './assets/tabbar/maps.png',
-          selectedIconPath: 'assets/tabbar/maps-active.png'
+          selectedIconPath: 'assets/tabbar/maps-active.png',
         },
         {
           pagePath: 'pages/article/index',
           text: '文章',
           iconPath: './assets/tabbar/articles.png',
-          selectedIconPath: 'assets/tabbar/articles-active.png'
-        }
+          selectedIconPath: 'assets/tabbar/articles-active.png',
+        },
       ],
       color: '#333',
       selectedColor: '#333',
       backgroundColor: '#fff',
-      borderStyle: 'white'
+      borderStyle: 'white',
     },
     permission: {
       'scope.userLocation': {
-        desc: '是的要你的定位权限，怕不怕'
-      }
-    }
+        desc: '是的要你的定位权限，怕不怕',
+      },
+    },
   };
 
   componentDidShow() {}

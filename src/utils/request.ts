@@ -5,15 +5,6 @@ axios.defaults.timeout = 10000;
 // post请求头
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 
-//对外接口
-export default function request({ method, url, params }) {
-  if (method == 'GET') {
-    return get(url, params);
-  } else if (method == 'POST') {
-    return post(url, params);
-  }
-}
-
 // 封装get方法
 function get(url, params) {
   return new Promise((resolve, reject) => {
@@ -48,7 +39,7 @@ axios.interceptors.request.use(
     return config;
   },
   error => {
-    return Promise.error(error);
+    return Promise.reject(error);
   }
 );
 
@@ -66,3 +57,12 @@ axios.interceptors.response.use(
     return Promise.reject(error.response);
   }
 );
+//对外接口
+export default function request({ method, url, params }) {
+  if (method == 'GET') {
+    return get(url, params);
+  } else if (method == 'POST') {
+    return post(url, params);
+  }
+}
+
